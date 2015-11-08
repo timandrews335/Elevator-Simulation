@@ -23,6 +23,9 @@ Partial Class Form1
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.gbSettings = New System.Windows.Forms.GroupBox()
+        Me.nudArriveTimeStDev = New System.Windows.Forms.NumericUpDown()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.dtMeanArriveTime = New System.Windows.Forms.DateTimePicker()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.nudIterations = New System.Windows.Forms.NumericUpDown()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -35,17 +38,18 @@ Partial Class Form1
         Me.Label1 = New System.Windows.Forms.Label()
         Me.lblSimulating = New System.Windows.Forms.Label()
         Me.bwSimulate = New System.ComponentModel.BackgroundWorker()
-        Me.dtMeanArriveTime = New System.Windows.Forms.DateTimePicker()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.nudArriveTimeStDev = New System.Windows.Forms.NumericUpDown()
         Me.dgvResultsHeader = New System.Windows.Forms.DataGridView()
+        Me.btnCopyHeader = New System.Windows.Forms.Button()
+        Me.dgvResultsDetail = New System.Windows.Forms.DataGridView()
+        Me.btnCopyDetail = New System.Windows.Forms.Button()
         Me.gbSettings.SuspendLayout()
+        CType(Me.nudArriveTimeStDev, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.nudIterations, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.nudElevatorCount, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.nudFloorCount, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.nudEmployeeCount, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.nudArriveTimeStDev, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgvResultsHeader, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgvResultsDetail, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'gbSettings
@@ -71,6 +75,35 @@ Partial Class Form1
         Me.gbSettings.TabIndex = 0
         Me.gbSettings.TabStop = False
         Me.gbSettings.Text = "Settings"
+        '
+        'nudArriveTimeStDev
+        '
+        Me.nudArriveTimeStDev.DecimalPlaces = 1
+        Me.nudArriveTimeStDev.Location = New System.Drawing.Point(108, 87)
+        Me.nudArriveTimeStDev.Maximum = New Decimal(New Integer() {240, 0, 0, 0})
+        Me.nudArriveTimeStDev.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
+        Me.nudArriveTimeStDev.Name = "nudArriveTimeStDev"
+        Me.nudArriveTimeStDev.Size = New System.Drawing.Size(87, 20)
+        Me.nudArriveTimeStDev.TabIndex = 7
+        Me.nudArriveTimeStDev.Value = New Decimal(New Integer() {45, 0, 0, 0})
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(105, 72)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(136, 13)
+        Me.Label6.TabIndex = 6
+        Me.Label6.Text = "Arrive Time Std Dev minute"
+        '
+        'dtMeanArriveTime
+        '
+        Me.dtMeanArriveTime.Format = System.Windows.Forms.DateTimePickerFormat.Time
+        Me.dtMeanArriveTime.Location = New System.Drawing.Point(108, 35)
+        Me.dtMeanArriveTime.Name = "dtMeanArriveTime"
+        Me.dtMeanArriveTime.Size = New System.Drawing.Size(129, 20)
+        Me.dtMeanArriveTime.TabIndex = 3
+        Me.dtMeanArriveTime.Value = New Date(2015, 11, 7, 7, 50, 0, 0)
         '
         'Label5
         '
@@ -102,8 +135,7 @@ Partial Class Form1
         '
         'btnSimulate
         '
-        Me.btnSimulate.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.btnSimulate.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.btnSimulate.Location = New System.Drawing.Point(6, 346)
         Me.btnSimulate.Name = "btnSimulate"
         Me.btnSimulate.Size = New System.Drawing.Size(231, 32)
@@ -183,49 +215,54 @@ Partial Class Form1
         '
         Me.bwSimulate.WorkerReportsProgress = True
         '
-        'dtMeanArriveTime
-        '
-        Me.dtMeanArriveTime.Format = System.Windows.Forms.DateTimePickerFormat.Time
-        Me.dtMeanArriveTime.Location = New System.Drawing.Point(108, 35)
-        Me.dtMeanArriveTime.Name = "dtMeanArriveTime"
-        Me.dtMeanArriveTime.Size = New System.Drawing.Size(129, 20)
-        Me.dtMeanArriveTime.TabIndex = 3
-        Me.dtMeanArriveTime.Value = New Date(2015, 11, 7, 7, 50, 0, 0)
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(105, 72)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(136, 13)
-        Me.Label6.TabIndex = 6
-        Me.Label6.Text = "Arrive Time Std Dev minute"
-        '
-        'nudArriveTimeStDev
-        '
-        Me.nudArriveTimeStDev.DecimalPlaces = 1
-        Me.nudArriveTimeStDev.Location = New System.Drawing.Point(108, 87)
-        Me.nudArriveTimeStDev.Maximum = New Decimal(New Integer() {240, 0, 0, 0})
-        Me.nudArriveTimeStDev.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
-        Me.nudArriveTimeStDev.Name = "nudArriveTimeStDev"
-        Me.nudArriveTimeStDev.Size = New System.Drawing.Size(87, 20)
-        Me.nudArriveTimeStDev.TabIndex = 7
-        Me.nudArriveTimeStDev.Value = New Decimal(New Integer() {45, 0, 0, 0})
-        '
         'dgvResultsHeader
         '
+        Me.dgvResultsHeader.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dgvResultsHeader.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvResultsHeader.Location = New System.Drawing.Point(266, 33)
         Me.dgvResultsHeader.Name = "dgvResultsHeader"
         Me.dgvResultsHeader.ReadOnly = True
-        Me.dgvResultsHeader.Size = New System.Drawing.Size(458, 150)
+        Me.dgvResultsHeader.Size = New System.Drawing.Size(458, 184)
         Me.dgvResultsHeader.TabIndex = 2
+        '
+        'btnCopyHeader
+        '
+        Me.btnCopyHeader.Location = New System.Drawing.Point(266, 223)
+        Me.btnCopyHeader.Name = "btnCopyHeader"
+        Me.btnCopyHeader.Size = New System.Drawing.Size(146, 23)
+        Me.btnCopyHeader.TabIndex = 3
+        Me.btnCopyHeader.Text = "Copy results to clipboard"
+        Me.btnCopyHeader.UseVisualStyleBackColor = True
+        '
+        'dgvResultsDetail
+        '
+        Me.dgvResultsDetail.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.dgvResultsDetail.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvResultsDetail.Location = New System.Drawing.Point(266, 260)
+        Me.dgvResultsDetail.Name = "dgvResultsDetail"
+        Me.dgvResultsDetail.ReadOnly = True
+        Me.dgvResultsDetail.Size = New System.Drawing.Size(458, 153)
+        Me.dgvResultsDetail.TabIndex = 4
+        '
+        'btnCopyDetail
+        '
+        Me.btnCopyDetail.Location = New System.Drawing.Point(266, 419)
+        Me.btnCopyDetail.Name = "btnCopyDetail"
+        Me.btnCopyDetail.Size = New System.Drawing.Size(146, 23)
+        Me.btnCopyDetail.TabIndex = 5
+        Me.btnCopyDetail.Text = "Copy results to clipboard"
+        Me.btnCopyDetail.UseVisualStyleBackColor = True
         '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(736, 447)
+        Me.Controls.Add(Me.btnCopyDetail)
+        Me.Controls.Add(Me.dgvResultsDetail)
+        Me.Controls.Add(Me.btnCopyHeader)
         Me.Controls.Add(Me.dgvResultsHeader)
         Me.Controls.Add(Me.lblSimulating)
         Me.Controls.Add(Me.gbSettings)
@@ -234,12 +271,13 @@ Partial Class Form1
         Me.Text = "Elevator Simulation"
         Me.gbSettings.ResumeLayout(False)
         Me.gbSettings.PerformLayout()
+        CType(Me.nudArriveTimeStDev, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.nudIterations, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.nudElevatorCount, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.nudFloorCount, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.nudEmployeeCount, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.nudArriveTimeStDev, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dgvResultsHeader, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgvResultsDetail, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -261,5 +299,8 @@ Partial Class Form1
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents nudArriveTimeStDev As System.Windows.Forms.NumericUpDown
     Friend WithEvents dgvResultsHeader As System.Windows.Forms.DataGridView
+    Friend WithEvents btnCopyHeader As System.Windows.Forms.Button
+    Friend WithEvents dgvResultsDetail As System.Windows.Forms.DataGridView
+    Friend WithEvents btnCopyDetail As System.Windows.Forms.Button
 
 End Class

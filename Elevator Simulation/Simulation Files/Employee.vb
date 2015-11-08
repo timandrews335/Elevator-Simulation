@@ -56,7 +56,7 @@
             Me.mFloor = value
         End Set
     End Property
-    Public ReadOnly Property ArrivalWaitTime As Integer
+    Public ReadOnly Property ArrivalWaitTime As Double
         Get
             Return Me.mArriveEndTime - Me.mArriveTime
         End Get
