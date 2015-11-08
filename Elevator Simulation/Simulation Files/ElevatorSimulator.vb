@@ -10,6 +10,7 @@
     Private mMeanArrivalTime As Double 'Hour of day with decimals
     Private mArrivalTimeStandardDeviation As Double 'Percentage of an hour
     Private mSimulationID As Guid
+    Private mMaxOccupantsPerElevator As Integer 'Pass into the elevators
 
 
     Friend Sub Simulate()
@@ -23,7 +24,9 @@
         'Reset array of elevators
         Me.mElevators.Clear()
         For i As Integer = 1 To Me.mElevatorCount
-            Me.mElevators.Add(New Elevator(i))
+            Dim NewElevator As New Elevator(i)
+            NewElevator.MaxOccupants = Me.mMaxOccupantsPerElevator
+            Me.mElevators.Add(NewElevator)
         Next
         For Each el As Elevator In Me.mElevators
             el.CurrentFloor = 1
@@ -53,7 +56,7 @@
                     For Each passenger As Employee In el.CurrentOccupants.ToArray()
                         If passenger.Floor = el.CurrentFloor Then 'Passenger must get off
                             el.CurrentOccupants.Remove(passenger)
-                            el.PauseTime += 1
+                            el.PauseTime += 1  'For now, it is hard-coded that it takes one iteration of the loop for a passenger to get off (10 seconds)
                             For Each emp As Employee In Me.mEmployees
                                 If emp.EmployeeID = passenger.EmployeeID Then
                                     emp.ArriveEndTime = CurrentTime
@@ -68,7 +71,8 @@
 
             'See which employees have arrived at this time 
             For Each emp As Employee In Me.mEmployees
-                If emp.ArriveTime2 <= CurrentTimeString And emp.ArrivedOnboarded = False Then
+                'If emp.ArriveTime2 <= CurrentTimeString And emp.ArrivedOnboarded = False Then
+                If emp.ArriveTime <= CurrentTime And emp.ArrivedOnboarded = False Then
                     'If the employee works on floor 1, they do not wait
                     If emp.Floor = 1 Then
                         emp.ArriveEndTime = CurrentTime
@@ -266,6 +270,14 @@
 
 
 #Region "Properties"
+    Friend Property MaxOccupantsPerElevator As Integer
+        Get
+            Return Me.mMaxOccupantsPerElevator
+        End Get
+        Set(value As Integer)
+            Me.mMaxOccupantsPerElevator = value
+        End Set
+    End Property
     Friend ReadOnly Property SimulationID As Guid
         Get
             Return Me.mSimulationID

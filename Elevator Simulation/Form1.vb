@@ -7,7 +7,7 @@
 
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'Set up data structures
+        'Set up data containers
         Dim dtResultsHeader As New DataTable
         With dtResultsHeader
             .TableName = "ResultsHeader"
@@ -18,13 +18,7 @@
             .Columns.Add("ElevatorCount", System.Type.GetType("System.Int32"))
             .Columns.Add("MeanArriveTime", System.Type.GetType("System.Double"))
             .Columns.Add("ArriveTimeStandardDeviation", System.Type.GetType("System.Double"))
-            .Columns(0).Caption = "Sim ID"
-            .Columns(1).Caption = "Mean Arrival Wait Time"
-            .Columns(2).Caption = "Employee Count"
-            .Columns(3).Caption = "Floor Count"
-            .Columns(4).Caption = "Elevator Count"
-            .Columns(5).Caption = "Mean Arrive Time"
-            .Columns(6).Caption = "Arrive Time Standard Deviation"
+            .Columns.Add("MaxOccupantsPerElevator", System.Type.GetType("System.Int32"))
         End With
         Me.dgvResultsHeader.DataSource = dtResultsHeader
         Me.dsResults.Tables.Add(dtResultsHeader)
@@ -44,6 +38,10 @@
 
         'Relate the tables together
         Dim dr As New DataRelation("Results", dtResultsHeader.Columns(0), dtResultsDetail.Columns(0))
+        Me.dsResults.Relations.Add(dr)
+
+
+        Me.dgvResultsHeader.AutoGenerateColumns = False
     End Sub
 
     Private Sub btnSimulate_Click(sender As Object, e As EventArgs) Handles btnSimulate.Click
@@ -61,11 +59,19 @@
     Private Sub btnCopyDetail_Click(sender As Object, e As EventArgs) Handles btnCopyDetail.Click
         My.Computer.Clipboard.SetText(CopyDataTable(Me.dsResults.Tables(1)))
     End Sub
+    Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
+        Me.dsResults.Tables(1).Clear()
+        Me.dsResults.Tables(0).Clear()
+    End Sub
 
+    Private Sub btnExit_Click(sender As Object, e As EventArgs) Handles btnExit.Click
+        Me.Close()
+    End Sub
 
 #Region "Controls to set up simulation"
     Private Sub nudEmployeeCount_ValueChanged(sender As Object, e As EventArgs) Handles nudEmployeeCount.ValueChanged
         Me.mSimulator.EmployeeCount = Me.nudEmployeeCount.Value
+
     End Sub
 
     Private Sub nudFloorCount_ValueChanged(sender As Object, e As EventArgs) Handles nudFloorCount.ValueChanged
@@ -83,6 +89,10 @@
     Private Sub nudArriveTimeStDev_ValueChanged(sender As Object, e As EventArgs) Handles nudArriveTimeStDev.ValueChanged
         Me.mSimulator.ArrivateTimeStandardDeviation = Me.nudArriveTimeStDev.Value / 60.0
     End Sub
+
+    Private Sub nudMaxOccupants_ValueChanged(sender As Object, e As EventArgs) Handles nudMaxOccupants.ValueChanged
+        Me.mSimulator.MaxOccupantsPerElevator = Me.nudMaxOccupants.Value
+    End Sub
 #End Region
 
 #Region "Simulation Background Worker"
@@ -99,7 +109,9 @@
                 Me.mSimulator.EmployeeCount.ToString & ControlChars.Tab & Me.mSimulator.FloorCount.ToString & _
                 ControlChars.Tab & Me.mSimulator.ElevatorCount.ToString & _
                 ControlChars.Tab & Me.mSimulator.MeanArrivalTime.ToString & _
-                ControlChars.Tab & Me.mSimulator.ArrivateTimeStandardDeviation.ToString & Environment.NewLine
+                ControlChars.Tab & Me.mSimulator.ArrivateTimeStandardDeviation.ToString & _
+            ControlChars.Tab & Me.mSimulator.MaxOccupantsPerElevator.ToString & _
+            Environment.NewLine
 
 
             'String to store tab-delimeted detail information
@@ -138,6 +150,7 @@
             dr.Item(4) = row.Split(ControlChars.Tab)(4)
             dr.Item(5) = row.Split(ControlChars.Tab)(5)
             dr.Item(6) = row.Split(ControlChars.Tab)(6)
+            dr.Item(7) = row.Split(ControlChars.Tab)(7)
             Me.dsResults.Tables(0).Rows.Add(dr)
         Next
 
@@ -159,20 +172,43 @@
     'Copies a DataTable contents to the clipboard
     Private Function CopyDataTable(dt As DataTable) As String
         Dim s As String = ""
+        Dim sb As New System.Text.StringBuilder
+
+
         For Each dc As DataColumn In dt.Columns
-            s &= dc.ColumnName & ControlChars.Tab
+            sb.Append(dc.ColumnName & IIf(dc.Ordinal = dt.Columns.Count - 1 And dt.TableName <> "ResultsDetail", "", ControlChars.Tab))
         Next
-        s = s.Trim
-        s &= Environment.NewLine
+        If dt.TableName = "ResultsDetail" Then
+            sb.Append("EmployeeCount" & ControlChars.Tab)
+            sb.Append("FloorCount" & ControlChars.Tab)
+            sb.Append("ElevatorCount" & ControlChars.Tab)
+            sb.Append("MeanArriveTime" & ControlChars.Tab)
+            sb.Append("ArriveTimeStandardDeviation" & ControlChars.Tab)
+            sb.Append("MaxOccupantsPerElevator")
+        End If
+        sb.AppendLine()
+
         For Each dr As DataRow In dt.Rows
             For Each dc As DataColumn In dt.Columns
-                s &= dr.Item(dc.ColumnName).ToString & ControlChars.Tab
+                sb.Append(dr.Item(dc.ColumnName).ToString & IIf(dc.Ordinal = dt.Columns.Count - 1 And dt.TableName <> "ResultsDetail", "", ControlChars.Tab))
             Next
-            s = s.Trim
-            s &= Environment.NewLine
+            'If there are parent rows
+            If dt.TableName = "ResultsDetail" Then
+                Dim drParent As DataRow = dr.GetParentRow("Results")
+                sb.Append(drParent.Item("EmployeeCount").ToString & ControlChars.Tab)
+                sb.Append(drParent.Item("FloorCount").ToString & ControlChars.Tab)
+                sb.Append(drParent.Item("ElevatorCount").ToString & ControlChars.Tab)
+                sb.Append(drParent.Item("MeanArriveTime").ToString & ControlChars.Tab)
+                sb.Append(drParent.Item("ArriveTimeStandardDeviation").ToString & ControlChars.Tab)
+                sb.Append(drParent.Item("MaxOccupantsPerElevator").ToString)
+            End If
+            sb.AppendLine()
         Next
-        Return s
+        'Return s
+        Return sb.ToString
     End Function
+
+
 
 
 
