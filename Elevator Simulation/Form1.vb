@@ -7,6 +7,10 @@
 
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'Show an intro form
+        Dim fi As New FormIntro
+        fi.ShowDialog()
+
         'Set up data containers
         Dim dtResultsHeader As New DataTable
         With dtResultsHeader

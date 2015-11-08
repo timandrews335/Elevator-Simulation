@@ -98,7 +98,7 @@ Partial Class Form1
         Me.Label6.Location = New System.Drawing.Point(105, 72)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(136, 13)
-        Me.Label6.TabIndex = 6
+        Me.Label6.TabIndex = 7
         Me.Label6.Text = "Arrive Time Std Dev minute"
         '
         'Label5
@@ -107,7 +107,7 @@ Partial Class Form1
         Me.Label5.Location = New System.Drawing.Point(105, 20)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(90, 13)
-        Me.Label5.TabIndex = 2
+        Me.Label5.TabIndex = 3
         Me.Label5.Text = "Mean Arrive Time"
         '
         'Label4
@@ -116,7 +116,7 @@ Partial Class Form1
         Me.Label4.Location = New System.Drawing.Point(3, 291)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(50, 13)
-        Me.Label4.TabIndex = 10
+        Me.Label4.TabIndex = 13
         Me.Label4.Text = "Iterations"
         '
         'btnSimulate
@@ -125,7 +125,7 @@ Partial Class Form1
         Me.btnSimulate.Location = New System.Drawing.Point(6, 355)
         Me.btnSimulate.Name = "btnSimulate"
         Me.btnSimulate.Size = New System.Drawing.Size(231, 32)
-        Me.btnSimulate.TabIndex = 12
+        Me.btnSimulate.TabIndex = 0
         Me.btnSimulate.Text = "Simulate"
         Me.btnSimulate.UseVisualStyleBackColor = True
         '
@@ -135,7 +135,7 @@ Partial Class Form1
         Me.Label3.Location = New System.Drawing.Point(3, 127)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(77, 13)
-        Me.Label3.TabIndex = 8
+        Me.Label3.TabIndex = 9
         Me.Label3.Text = "Elevator Count"
         '
         'Label2
@@ -144,7 +144,7 @@ Partial Class Form1
         Me.Label2.Location = New System.Drawing.Point(3, 72)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(61, 13)
-        Me.Label2.TabIndex = 4
+        Me.Label2.TabIndex = 5
         Me.Label2.Text = "Floor Count"
         '
         'Label1
@@ -153,7 +153,7 @@ Partial Class Form1
         Me.Label1.Location = New System.Drawing.Point(3, 20)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(84, 13)
-        Me.Label1.TabIndex = 0
+        Me.Label1.TabIndex = 1
         Me.Label1.Text = "Employee Count"
         '
         'lblSimulating
@@ -246,7 +246,7 @@ Partial Class Form1
         Me.Label8.Location = New System.Drawing.Point(105, 127)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(139, 13)
-        Me.Label8.TabIndex = 13
+        Me.Label8.TabIndex = 11
         Me.Label8.Text = "Max occupants per elevator"
         '
         'nudMaxOccupants
@@ -257,7 +257,7 @@ Partial Class Form1
         Me.nudMaxOccupants.Minimum = New Decimal(New Integer() {3, 0, 0, 0})
         Me.nudMaxOccupants.Name = "nudMaxOccupants"
         Me.nudMaxOccupants.Size = New System.Drawing.Size(81, 20)
-        Me.nudMaxOccupants.TabIndex = 14
+        Me.nudMaxOccupants.TabIndex = 12
         Me.nudMaxOccupants.Value = Global.Elevator_Simulation.My.MySettings.Default.MaxOccupantsPerElevator
         '
         'nudArriveTimeStDev
@@ -269,7 +269,7 @@ Partial Class Form1
         Me.nudArriveTimeStDev.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
         Me.nudArriveTimeStDev.Name = "nudArriveTimeStDev"
         Me.nudArriveTimeStDev.Size = New System.Drawing.Size(87, 20)
-        Me.nudArriveTimeStDev.TabIndex = 7
+        Me.nudArriveTimeStDev.TabIndex = 8
         Me.nudArriveTimeStDev.Value = Global.Elevator_Simulation.My.MySettings.Default.ArriveTimeStandardDeviation
         '
         'dtMeanArriveTime
@@ -279,7 +279,7 @@ Partial Class Form1
         Me.dtMeanArriveTime.Location = New System.Drawing.Point(108, 35)
         Me.dtMeanArriveTime.Name = "dtMeanArriveTime"
         Me.dtMeanArriveTime.Size = New System.Drawing.Size(129, 20)
-        Me.dtMeanArriveTime.TabIndex = 3
+        Me.dtMeanArriveTime.TabIndex = 4
         Me.dtMeanArriveTime.Value = Global.Elevator_Simulation.My.MySettings.Default.MeanArriveTime
         '
         'nudIterations
@@ -290,7 +290,7 @@ Partial Class Form1
         Me.nudIterations.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
         Me.nudIterations.Name = "nudIterations"
         Me.nudIterations.Size = New System.Drawing.Size(81, 20)
-        Me.nudIterations.TabIndex = 11
+        Me.nudIterations.TabIndex = 14
         Me.nudIterations.Value = Global.Elevator_Simulation.My.MySettings.Default.Iterations
         '
         'nudElevatorCount
@@ -301,7 +301,7 @@ Partial Class Form1
         Me.nudElevatorCount.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
         Me.nudElevatorCount.Name = "nudElevatorCount"
         Me.nudElevatorCount.Size = New System.Drawing.Size(81, 20)
-        Me.nudElevatorCount.TabIndex = 9
+        Me.nudElevatorCount.TabIndex = 10
         Me.nudElevatorCount.Value = Global.Elevator_Simulation.My.MySettings.Default.ElevatorCount
         '
         'nudFloorCount
@@ -312,7 +312,7 @@ Partial Class Form1
         Me.nudFloorCount.Minimum = New Decimal(New Integer() {2, 0, 0, 0})
         Me.nudFloorCount.Name = "nudFloorCount"
         Me.nudFloorCount.Size = New System.Drawing.Size(81, 20)
-        Me.nudFloorCount.TabIndex = 5
+        Me.nudFloorCount.TabIndex = 6
         Me.nudFloorCount.Value = Global.Elevator_Simulation.My.MySettings.Default.FloorCount
         '
         'nudEmployeeCount
@@ -323,7 +323,7 @@ Partial Class Form1
         Me.nudEmployeeCount.Minimum = New Decimal(New Integer() {50, 0, 0, 0})
         Me.nudEmployeeCount.Name = "nudEmployeeCount"
         Me.nudEmployeeCount.Size = New System.Drawing.Size(81, 20)
-        Me.nudEmployeeCount.TabIndex = 1
+        Me.nudEmployeeCount.TabIndex = 2
         Me.nudEmployeeCount.Value = Global.Elevator_Simulation.My.MySettings.Default.EmployeeCount
         '
         'colSimulationID
