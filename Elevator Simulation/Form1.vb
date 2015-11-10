@@ -7,6 +7,7 @@
 
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'Test
         'Show an intro form
         Dim fi As New FormIntro
         fi.ShowDialog()

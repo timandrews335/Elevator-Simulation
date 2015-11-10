@@ -23,30 +23,24 @@ Partial Class Form1
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.gbSettings = New System.Windows.Forms.GroupBox()
+        Me.nudMaxOccupants = New System.Windows.Forms.NumericUpDown()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.nudArriveTimeStDev = New System.Windows.Forms.NumericUpDown()
         Me.Label6 = New System.Windows.Forms.Label()
+        Me.dtMeanArriveTime = New System.Windows.Forms.DateTimePicker()
         Me.Label5 = New System.Windows.Forms.Label()
+        Me.nudIterations = New System.Windows.Forms.NumericUpDown()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.btnSimulate = New System.Windows.Forms.Button()
+        Me.nudElevatorCount = New System.Windows.Forms.NumericUpDown()
         Me.Label3 = New System.Windows.Forms.Label()
+        Me.nudFloorCount = New System.Windows.Forms.NumericUpDown()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.nudEmployeeCount = New System.Windows.Forms.NumericUpDown()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.lblSimulating = New System.Windows.Forms.Label()
         Me.bwSimulate = New System.ComponentModel.BackgroundWorker()
         Me.dgvResultsHeader = New System.Windows.Forms.DataGridView()
-        Me.btnCopyHeader = New System.Windows.Forms.Button()
-        Me.dgvResultsDetail = New System.Windows.Forms.DataGridView()
-        Me.btnCopyDetail = New System.Windows.Forms.Button()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.btnClear = New System.Windows.Forms.Button()
-        Me.btnExit = New System.Windows.Forms.Button()
-        Me.Label8 = New System.Windows.Forms.Label()
-        Me.nudMaxOccupants = New System.Windows.Forms.NumericUpDown()
-        Me.nudArriveTimeStDev = New System.Windows.Forms.NumericUpDown()
-        Me.dtMeanArriveTime = New System.Windows.Forms.DateTimePicker()
-        Me.nudIterations = New System.Windows.Forms.NumericUpDown()
-        Me.nudElevatorCount = New System.Windows.Forms.NumericUpDown()
-        Me.nudFloorCount = New System.Windows.Forms.NumericUpDown()
-        Me.nudEmployeeCount = New System.Windows.Forms.NumericUpDown()
         Me.colSimulationID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.colEmployeeCount = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.colFloorCount = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -55,15 +49,21 @@ Partial Class Form1
         Me.colMeanArriveTime = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.colArriveTimeStandardDeviation = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.colMeanArrivalWaitTime = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.btnCopyHeader = New System.Windows.Forms.Button()
+        Me.dgvResultsDetail = New System.Windows.Forms.DataGridView()
+        Me.btnCopyDetail = New System.Windows.Forms.Button()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.btnClear = New System.Windows.Forms.Button()
+        Me.btnExit = New System.Windows.Forms.Button()
         Me.gbSettings.SuspendLayout()
-        CType(Me.dgvResultsHeader, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.dgvResultsDetail, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.nudMaxOccupants, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.nudArriveTimeStDev, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.nudIterations, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.nudElevatorCount, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.nudFloorCount, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.nudEmployeeCount, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgvResultsHeader, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgvResultsDetail, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'gbSettings
@@ -92,6 +92,38 @@ Partial Class Form1
         Me.gbSettings.TabStop = False
         Me.gbSettings.Text = "Settings"
         '
+        'nudMaxOccupants
+        '
+        Me.nudMaxOccupants.DataBindings.Add(New System.Windows.Forms.Binding("Value", Global.Elevator_Simulation.My.MySettings.Default, "MaxOccupantsPerElevator", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.nudMaxOccupants.Location = New System.Drawing.Point(108, 143)
+        Me.nudMaxOccupants.Maximum = New Decimal(New Integer() {18, 0, 0, 0})
+        Me.nudMaxOccupants.Minimum = New Decimal(New Integer() {3, 0, 0, 0})
+        Me.nudMaxOccupants.Name = "nudMaxOccupants"
+        Me.nudMaxOccupants.Size = New System.Drawing.Size(81, 20)
+        Me.nudMaxOccupants.TabIndex = 12
+        Me.nudMaxOccupants.Value = Global.Elevator_Simulation.My.MySettings.Default.MaxOccupantsPerElevator
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Location = New System.Drawing.Point(105, 127)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(139, 13)
+        Me.Label8.TabIndex = 11
+        Me.Label8.Text = "Max occupants per elevator"
+        '
+        'nudArriveTimeStDev
+        '
+        Me.nudArriveTimeStDev.DataBindings.Add(New System.Windows.Forms.Binding("Value", Global.Elevator_Simulation.My.MySettings.Default, "ArriveTimeStandardDeviation", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.nudArriveTimeStDev.DecimalPlaces = 1
+        Me.nudArriveTimeStDev.Location = New System.Drawing.Point(108, 87)
+        Me.nudArriveTimeStDev.Maximum = New Decimal(New Integer() {240, 0, 0, 0})
+        Me.nudArriveTimeStDev.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
+        Me.nudArriveTimeStDev.Name = "nudArriveTimeStDev"
+        Me.nudArriveTimeStDev.Size = New System.Drawing.Size(87, 20)
+        Me.nudArriveTimeStDev.TabIndex = 8
+        Me.nudArriveTimeStDev.Value = Global.Elevator_Simulation.My.MySettings.Default.ArriveTimeStandardDeviation
+        '
         'Label6
         '
         Me.Label6.AutoSize = True
@@ -101,6 +133,16 @@ Partial Class Form1
         Me.Label6.TabIndex = 7
         Me.Label6.Text = "Arrive Time Std Dev minute"
         '
+        'dtMeanArriveTime
+        '
+        Me.dtMeanArriveTime.DataBindings.Add(New System.Windows.Forms.Binding("Value", Global.Elevator_Simulation.My.MySettings.Default, "MeanArriveTime", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.dtMeanArriveTime.Format = System.Windows.Forms.DateTimePickerFormat.Time
+        Me.dtMeanArriveTime.Location = New System.Drawing.Point(108, 35)
+        Me.dtMeanArriveTime.Name = "dtMeanArriveTime"
+        Me.dtMeanArriveTime.Size = New System.Drawing.Size(129, 20)
+        Me.dtMeanArriveTime.TabIndex = 4
+        Me.dtMeanArriveTime.Value = Global.Elevator_Simulation.My.MySettings.Default.MeanArriveTime
+        '
         'Label5
         '
         Me.Label5.AutoSize = True
@@ -109,6 +151,17 @@ Partial Class Form1
         Me.Label5.Size = New System.Drawing.Size(90, 13)
         Me.Label5.TabIndex = 3
         Me.Label5.Text = "Mean Arrive Time"
+        '
+        'nudIterations
+        '
+        Me.nudIterations.DataBindings.Add(New System.Windows.Forms.Binding("Value", Global.Elevator_Simulation.My.MySettings.Default, "Iterations", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.nudIterations.Location = New System.Drawing.Point(6, 308)
+        Me.nudIterations.Maximum = New Decimal(New Integer() {1000, 0, 0, 0})
+        Me.nudIterations.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
+        Me.nudIterations.Name = "nudIterations"
+        Me.nudIterations.Size = New System.Drawing.Size(81, 20)
+        Me.nudIterations.TabIndex = 14
+        Me.nudIterations.Value = Global.Elevator_Simulation.My.MySettings.Default.Iterations
         '
         'Label4
         '
@@ -129,6 +182,17 @@ Partial Class Form1
         Me.btnSimulate.Text = "Simulate"
         Me.btnSimulate.UseVisualStyleBackColor = True
         '
+        'nudElevatorCount
+        '
+        Me.nudElevatorCount.DataBindings.Add(New System.Windows.Forms.Binding("Value", Global.Elevator_Simulation.My.MySettings.Default, "ElevatorCount", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.nudElevatorCount.Location = New System.Drawing.Point(6, 143)
+        Me.nudElevatorCount.Maximum = New Decimal(New Integer() {12, 0, 0, 0})
+        Me.nudElevatorCount.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
+        Me.nudElevatorCount.Name = "nudElevatorCount"
+        Me.nudElevatorCount.Size = New System.Drawing.Size(81, 20)
+        Me.nudElevatorCount.TabIndex = 10
+        Me.nudElevatorCount.Value = Global.Elevator_Simulation.My.MySettings.Default.ElevatorCount
+        '
         'Label3
         '
         Me.Label3.AutoSize = True
@@ -138,6 +202,17 @@ Partial Class Form1
         Me.Label3.TabIndex = 9
         Me.Label3.Text = "Elevator Count"
         '
+        'nudFloorCount
+        '
+        Me.nudFloorCount.DataBindings.Add(New System.Windows.Forms.Binding("Value", Global.Elevator_Simulation.My.MySettings.Default, "FloorCount", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.nudFloorCount.Location = New System.Drawing.Point(6, 88)
+        Me.nudFloorCount.Maximum = New Decimal(New Integer() {50, 0, 0, 0})
+        Me.nudFloorCount.Minimum = New Decimal(New Integer() {2, 0, 0, 0})
+        Me.nudFloorCount.Name = "nudFloorCount"
+        Me.nudFloorCount.Size = New System.Drawing.Size(81, 20)
+        Me.nudFloorCount.TabIndex = 6
+        Me.nudFloorCount.Value = Global.Elevator_Simulation.My.MySettings.Default.FloorCount
+        '
         'Label2
         '
         Me.Label2.AutoSize = True
@@ -146,6 +221,17 @@ Partial Class Form1
         Me.Label2.Size = New System.Drawing.Size(61, 13)
         Me.Label2.TabIndex = 5
         Me.Label2.Text = "Floor Count"
+        '
+        'nudEmployeeCount
+        '
+        Me.nudEmployeeCount.DataBindings.Add(New System.Windows.Forms.Binding("Value", Global.Elevator_Simulation.My.MySettings.Default, "EmployeeCount", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.nudEmployeeCount.Location = New System.Drawing.Point(6, 36)
+        Me.nudEmployeeCount.Maximum = New Decimal(New Integer() {1000, 0, 0, 0})
+        Me.nudEmployeeCount.Minimum = New Decimal(New Integer() {50, 0, 0, 0})
+        Me.nudEmployeeCount.Name = "nudEmployeeCount"
+        Me.nudEmployeeCount.Size = New System.Drawing.Size(81, 20)
+        Me.nudEmployeeCount.TabIndex = 2
+        Me.nudEmployeeCount.Value = Global.Elevator_Simulation.My.MySettings.Default.EmployeeCount
         '
         'Label1
         '
@@ -182,149 +268,6 @@ Partial Class Form1
         Me.dgvResultsHeader.ReadOnly = True
         Me.dgvResultsHeader.Size = New System.Drawing.Size(533, 184)
         Me.dgvResultsHeader.TabIndex = 3
-        '
-        'btnCopyHeader
-        '
-        Me.btnCopyHeader.Location = New System.Drawing.Point(266, 223)
-        Me.btnCopyHeader.Name = "btnCopyHeader"
-        Me.btnCopyHeader.Size = New System.Drawing.Size(146, 23)
-        Me.btnCopyHeader.TabIndex = 4
-        Me.btnCopyHeader.Text = "Copy results to clipboard"
-        Me.btnCopyHeader.UseVisualStyleBackColor = True
-        '
-        'dgvResultsDetail
-        '
-        Me.dgvResultsDetail.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.dgvResultsDetail.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvResultsDetail.Location = New System.Drawing.Point(266, 260)
-        Me.dgvResultsDetail.Name = "dgvResultsDetail"
-        Me.dgvResultsDetail.ReadOnly = True
-        Me.dgvResultsDetail.Size = New System.Drawing.Size(533, 153)
-        Me.dgvResultsDetail.TabIndex = 5
-        '
-        'btnCopyDetail
-        '
-        Me.btnCopyDetail.Location = New System.Drawing.Point(266, 419)
-        Me.btnCopyDetail.Name = "btnCopyDetail"
-        Me.btnCopyDetail.Size = New System.Drawing.Size(146, 23)
-        Me.btnCopyDetail.TabIndex = 6
-        Me.btnCopyDetail.Text = "Copy results to clipboard"
-        Me.btnCopyDetail.UseVisualStyleBackColor = True
-        '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(265, 13)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(42, 13)
-        Me.Label7.TabIndex = 2
-        Me.Label7.Text = "Results"
-        '
-        'btnClear
-        '
-        Me.btnClear.Location = New System.Drawing.Point(418, 419)
-        Me.btnClear.Name = "btnClear"
-        Me.btnClear.Size = New System.Drawing.Size(89, 23)
-        Me.btnClear.TabIndex = 7
-        Me.btnClear.Text = "Clear all results"
-        Me.btnClear.UseVisualStyleBackColor = True
-        '
-        'btnExit
-        '
-        Me.btnExit.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnExit.Location = New System.Drawing.Point(721, 419)
-        Me.btnExit.Name = "btnExit"
-        Me.btnExit.Size = New System.Drawing.Size(78, 23)
-        Me.btnExit.TabIndex = 8
-        Me.btnExit.Text = "Exit"
-        Me.btnExit.UseVisualStyleBackColor = True
-        '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(105, 127)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(139, 13)
-        Me.Label8.TabIndex = 11
-        Me.Label8.Text = "Max occupants per elevator"
-        '
-        'nudMaxOccupants
-        '
-        Me.nudMaxOccupants.DataBindings.Add(New System.Windows.Forms.Binding("Value", Global.Elevator_Simulation.My.MySettings.Default, "MaxOccupantsPerElevator", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        Me.nudMaxOccupants.Location = New System.Drawing.Point(108, 143)
-        Me.nudMaxOccupants.Maximum = New Decimal(New Integer() {18, 0, 0, 0})
-        Me.nudMaxOccupants.Minimum = New Decimal(New Integer() {3, 0, 0, 0})
-        Me.nudMaxOccupants.Name = "nudMaxOccupants"
-        Me.nudMaxOccupants.Size = New System.Drawing.Size(81, 20)
-        Me.nudMaxOccupants.TabIndex = 12
-        Me.nudMaxOccupants.Value = Global.Elevator_Simulation.My.MySettings.Default.MaxOccupantsPerElevator
-        '
-        'nudArriveTimeStDev
-        '
-        Me.nudArriveTimeStDev.DataBindings.Add(New System.Windows.Forms.Binding("Value", Global.Elevator_Simulation.My.MySettings.Default, "ArriveTimeStandardDeviation", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        Me.nudArriveTimeStDev.DecimalPlaces = 1
-        Me.nudArriveTimeStDev.Location = New System.Drawing.Point(108, 87)
-        Me.nudArriveTimeStDev.Maximum = New Decimal(New Integer() {240, 0, 0, 0})
-        Me.nudArriveTimeStDev.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
-        Me.nudArriveTimeStDev.Name = "nudArriveTimeStDev"
-        Me.nudArriveTimeStDev.Size = New System.Drawing.Size(87, 20)
-        Me.nudArriveTimeStDev.TabIndex = 8
-        Me.nudArriveTimeStDev.Value = Global.Elevator_Simulation.My.MySettings.Default.ArriveTimeStandardDeviation
-        '
-        'dtMeanArriveTime
-        '
-        Me.dtMeanArriveTime.DataBindings.Add(New System.Windows.Forms.Binding("Value", Global.Elevator_Simulation.My.MySettings.Default, "MeanArriveTime", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        Me.dtMeanArriveTime.Format = System.Windows.Forms.DateTimePickerFormat.Time
-        Me.dtMeanArriveTime.Location = New System.Drawing.Point(108, 35)
-        Me.dtMeanArriveTime.Name = "dtMeanArriveTime"
-        Me.dtMeanArriveTime.Size = New System.Drawing.Size(129, 20)
-        Me.dtMeanArriveTime.TabIndex = 4
-        Me.dtMeanArriveTime.Value = Global.Elevator_Simulation.My.MySettings.Default.MeanArriveTime
-        '
-        'nudIterations
-        '
-        Me.nudIterations.DataBindings.Add(New System.Windows.Forms.Binding("Value", Global.Elevator_Simulation.My.MySettings.Default, "Iterations", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        Me.nudIterations.Location = New System.Drawing.Point(6, 308)
-        Me.nudIterations.Maximum = New Decimal(New Integer() {1000, 0, 0, 0})
-        Me.nudIterations.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
-        Me.nudIterations.Name = "nudIterations"
-        Me.nudIterations.Size = New System.Drawing.Size(81, 20)
-        Me.nudIterations.TabIndex = 14
-        Me.nudIterations.Value = Global.Elevator_Simulation.My.MySettings.Default.Iterations
-        '
-        'nudElevatorCount
-        '
-        Me.nudElevatorCount.DataBindings.Add(New System.Windows.Forms.Binding("Value", Global.Elevator_Simulation.My.MySettings.Default, "ElevatorCount", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        Me.nudElevatorCount.Location = New System.Drawing.Point(6, 143)
-        Me.nudElevatorCount.Maximum = New Decimal(New Integer() {12, 0, 0, 0})
-        Me.nudElevatorCount.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
-        Me.nudElevatorCount.Name = "nudElevatorCount"
-        Me.nudElevatorCount.Size = New System.Drawing.Size(81, 20)
-        Me.nudElevatorCount.TabIndex = 10
-        Me.nudElevatorCount.Value = Global.Elevator_Simulation.My.MySettings.Default.ElevatorCount
-        '
-        'nudFloorCount
-        '
-        Me.nudFloorCount.DataBindings.Add(New System.Windows.Forms.Binding("Value", Global.Elevator_Simulation.My.MySettings.Default, "FloorCount", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        Me.nudFloorCount.Location = New System.Drawing.Point(6, 88)
-        Me.nudFloorCount.Maximum = New Decimal(New Integer() {50, 0, 0, 0})
-        Me.nudFloorCount.Minimum = New Decimal(New Integer() {2, 0, 0, 0})
-        Me.nudFloorCount.Name = "nudFloorCount"
-        Me.nudFloorCount.Size = New System.Drawing.Size(81, 20)
-        Me.nudFloorCount.TabIndex = 6
-        Me.nudFloorCount.Value = Global.Elevator_Simulation.My.MySettings.Default.FloorCount
-        '
-        'nudEmployeeCount
-        '
-        Me.nudEmployeeCount.DataBindings.Add(New System.Windows.Forms.Binding("Value", Global.Elevator_Simulation.My.MySettings.Default, "EmployeeCount", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        Me.nudEmployeeCount.Location = New System.Drawing.Point(6, 36)
-        Me.nudEmployeeCount.Maximum = New Decimal(New Integer() {1000, 0, 0, 0})
-        Me.nudEmployeeCount.Minimum = New Decimal(New Integer() {50, 0, 0, 0})
-        Me.nudEmployeeCount.Name = "nudEmployeeCount"
-        Me.nudEmployeeCount.Size = New System.Drawing.Size(81, 20)
-        Me.nudEmployeeCount.TabIndex = 2
-        Me.nudEmployeeCount.Value = Global.Elevator_Simulation.My.MySettings.Default.EmployeeCount
         '
         'colSimulationID
         '
@@ -390,6 +333,63 @@ Partial Class Form1
         Me.colMeanArrivalWaitTime.ReadOnly = True
         Me.colMeanArrivalWaitTime.Width = 70
         '
+        'btnCopyHeader
+        '
+        Me.btnCopyHeader.Location = New System.Drawing.Point(266, 223)
+        Me.btnCopyHeader.Name = "btnCopyHeader"
+        Me.btnCopyHeader.Size = New System.Drawing.Size(146, 23)
+        Me.btnCopyHeader.TabIndex = 4
+        Me.btnCopyHeader.Text = "Copy results to clipboard"
+        Me.btnCopyHeader.UseVisualStyleBackColor = True
+        '
+        'dgvResultsDetail
+        '
+        Me.dgvResultsDetail.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.dgvResultsDetail.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvResultsDetail.Location = New System.Drawing.Point(266, 260)
+        Me.dgvResultsDetail.Name = "dgvResultsDetail"
+        Me.dgvResultsDetail.ReadOnly = True
+        Me.dgvResultsDetail.Size = New System.Drawing.Size(533, 153)
+        Me.dgvResultsDetail.TabIndex = 5
+        '
+        'btnCopyDetail
+        '
+        Me.btnCopyDetail.Location = New System.Drawing.Point(266, 419)
+        Me.btnCopyDetail.Name = "btnCopyDetail"
+        Me.btnCopyDetail.Size = New System.Drawing.Size(146, 23)
+        Me.btnCopyDetail.TabIndex = 6
+        Me.btnCopyDetail.Text = "Copy results to clipboard"
+        Me.btnCopyDetail.UseVisualStyleBackColor = True
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(265, 13)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(42, 13)
+        Me.Label7.TabIndex = 2
+        Me.Label7.Text = "Results"
+        '
+        'btnClear
+        '
+        Me.btnClear.Location = New System.Drawing.Point(418, 419)
+        Me.btnClear.Name = "btnClear"
+        Me.btnClear.Size = New System.Drawing.Size(94, 23)
+        Me.btnClear.TabIndex = 7
+        Me.btnClear.Text = "Clear all results"
+        Me.btnClear.UseVisualStyleBackColor = True
+        '
+        'btnExit
+        '
+        Me.btnExit.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnExit.Location = New System.Drawing.Point(721, 419)
+        Me.btnExit.Name = "btnExit"
+        Me.btnExit.Size = New System.Drawing.Size(78, 23)
+        Me.btnExit.TabIndex = 8
+        Me.btnExit.Text = "Exit"
+        Me.btnExit.UseVisualStyleBackColor = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -410,14 +410,14 @@ Partial Class Form1
         Me.Text = "Elevator Simulation"
         Me.gbSettings.ResumeLayout(False)
         Me.gbSettings.PerformLayout()
-        CType(Me.dgvResultsHeader, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.dgvResultsDetail, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.nudMaxOccupants, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.nudArriveTimeStDev, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.nudIterations, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.nudElevatorCount, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.nudFloorCount, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.nudEmployeeCount, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgvResultsHeader, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgvResultsDetail, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
