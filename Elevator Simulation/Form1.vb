@@ -1,5 +1,5 @@
 ﻿Public Class Form1
-    'Simulation Engine
+    'Simulation Engine (test fro new PC)
     Private WithEvents mSimulator As New ElevatorSimulator
 
     'Data structures to store results
