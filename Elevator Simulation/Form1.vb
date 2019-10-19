@@ -5,6 +5,10 @@
     'Data structures to store results
     Dim dsResults As New DataSet
 
+    'Time the simulation started
+    Private simStarted As DateTime
+
+
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'Test
@@ -50,6 +54,8 @@
     End Sub
 
     Private Sub btnSimulate_Click(sender As Object, e As EventArgs) Handles btnSimulate.Click
+        Me.simStarted = DateTime.Now()
+        Me.lblTime.Text = ""
         Me.gbSettings.Enabled = False
         Me.lblSimulating.Visible = True
         Me.lblSimulating.Text = "Simulating...."
@@ -170,6 +176,9 @@
             dr.Item(5) = row.Split(ControlChars.Tab)(5)
             Me.dsResults.Tables(1).Rows.Add(dr)
         Next
+        'Record the time that it took
+        Me.lblTime.Text = DateDiff(DateInterval.Second, Me.simStarted, DateTime.Now()).ToString() & " seconds"
+
 
     End Sub
 #End Region

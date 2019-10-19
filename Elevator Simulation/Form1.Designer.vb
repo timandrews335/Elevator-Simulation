@@ -55,6 +55,7 @@ Partial Class Form1
         Me.Label7 = New System.Windows.Forms.Label()
         Me.btnClear = New System.Windows.Forms.Button()
         Me.btnExit = New System.Windows.Forms.Button()
+        Me.lblTime = New System.Windows.Forms.Label()
         Me.gbSettings.SuspendLayout()
         CType(Me.nudMaxOccupants, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.nudArriveTimeStDev, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -85,9 +86,11 @@ Partial Class Form1
         Me.gbSettings.Controls.Add(Me.Label2)
         Me.gbSettings.Controls.Add(Me.nudEmployeeCount)
         Me.gbSettings.Controls.Add(Me.Label1)
-        Me.gbSettings.Location = New System.Drawing.Point(13, 13)
+        Me.gbSettings.Location = New System.Drawing.Point(17, 16)
+        Me.gbSettings.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.gbSettings.Name = "gbSettings"
-        Me.gbSettings.Size = New System.Drawing.Size(246, 393)
+        Me.gbSettings.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.gbSettings.Size = New System.Drawing.Size(328, 484)
         Me.gbSettings.TabIndex = 0
         Me.gbSettings.TabStop = False
         Me.gbSettings.Text = "Settings"
@@ -95,20 +98,22 @@ Partial Class Form1
         'nudMaxOccupants
         '
         Me.nudMaxOccupants.DataBindings.Add(New System.Windows.Forms.Binding("Value", Global.Elevator_Simulation.My.MySettings.Default, "MaxOccupantsPerElevator", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        Me.nudMaxOccupants.Location = New System.Drawing.Point(108, 143)
+        Me.nudMaxOccupants.Location = New System.Drawing.Point(144, 176)
+        Me.nudMaxOccupants.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.nudMaxOccupants.Maximum = New Decimal(New Integer() {18, 0, 0, 0})
         Me.nudMaxOccupants.Minimum = New Decimal(New Integer() {3, 0, 0, 0})
         Me.nudMaxOccupants.Name = "nudMaxOccupants"
-        Me.nudMaxOccupants.Size = New System.Drawing.Size(81, 20)
+        Me.nudMaxOccupants.Size = New System.Drawing.Size(108, 22)
         Me.nudMaxOccupants.TabIndex = 12
         Me.nudMaxOccupants.Value = Global.Elevator_Simulation.My.MySettings.Default.MaxOccupantsPerElevator
         '
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(105, 127)
+        Me.Label8.Location = New System.Drawing.Point(140, 156)
+        Me.Label8.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(139, 13)
+        Me.Label8.Size = New System.Drawing.Size(182, 17)
         Me.Label8.TabIndex = 11
         Me.Label8.Text = "Max occupants per elevator"
         '
@@ -116,20 +121,22 @@ Partial Class Form1
         '
         Me.nudArriveTimeStDev.DataBindings.Add(New System.Windows.Forms.Binding("Value", Global.Elevator_Simulation.My.MySettings.Default, "ArriveTimeStandardDeviation", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
         Me.nudArriveTimeStDev.DecimalPlaces = 1
-        Me.nudArriveTimeStDev.Location = New System.Drawing.Point(108, 87)
+        Me.nudArriveTimeStDev.Location = New System.Drawing.Point(144, 107)
+        Me.nudArriveTimeStDev.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.nudArriveTimeStDev.Maximum = New Decimal(New Integer() {240, 0, 0, 0})
         Me.nudArriveTimeStDev.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
         Me.nudArriveTimeStDev.Name = "nudArriveTimeStDev"
-        Me.nudArriveTimeStDev.Size = New System.Drawing.Size(87, 20)
+        Me.nudArriveTimeStDev.Size = New System.Drawing.Size(116, 22)
         Me.nudArriveTimeStDev.TabIndex = 8
         Me.nudArriveTimeStDev.Value = Global.Elevator_Simulation.My.MySettings.Default.ArriveTimeStandardDeviation
         '
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(105, 72)
+        Me.Label6.Location = New System.Drawing.Point(140, 89)
+        Me.Label6.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(136, 13)
+        Me.Label6.Size = New System.Drawing.Size(180, 17)
         Me.Label6.TabIndex = 7
         Me.Label6.Text = "Arrive Time Std Dev minute"
         '
@@ -137,47 +144,52 @@ Partial Class Form1
         '
         Me.dtMeanArriveTime.DataBindings.Add(New System.Windows.Forms.Binding("Value", Global.Elevator_Simulation.My.MySettings.Default, "MeanArriveTime", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
         Me.dtMeanArriveTime.Format = System.Windows.Forms.DateTimePickerFormat.Time
-        Me.dtMeanArriveTime.Location = New System.Drawing.Point(108, 35)
+        Me.dtMeanArriveTime.Location = New System.Drawing.Point(144, 43)
+        Me.dtMeanArriveTime.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.dtMeanArriveTime.Name = "dtMeanArriveTime"
-        Me.dtMeanArriveTime.Size = New System.Drawing.Size(129, 20)
+        Me.dtMeanArriveTime.Size = New System.Drawing.Size(171, 22)
         Me.dtMeanArriveTime.TabIndex = 4
         Me.dtMeanArriveTime.Value = Global.Elevator_Simulation.My.MySettings.Default.MeanArriveTime
         '
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(105, 20)
+        Me.Label5.Location = New System.Drawing.Point(140, 25)
+        Me.Label5.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(90, 13)
+        Me.Label5.Size = New System.Drawing.Size(119, 17)
         Me.Label5.TabIndex = 3
         Me.Label5.Text = "Mean Arrive Time"
         '
         'nudIterations
         '
         Me.nudIterations.DataBindings.Add(New System.Windows.Forms.Binding("Value", Global.Elevator_Simulation.My.MySettings.Default, "Iterations", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        Me.nudIterations.Location = New System.Drawing.Point(6, 308)
+        Me.nudIterations.Location = New System.Drawing.Point(8, 379)
+        Me.nudIterations.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.nudIterations.Maximum = New Decimal(New Integer() {1000, 0, 0, 0})
         Me.nudIterations.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
         Me.nudIterations.Name = "nudIterations"
-        Me.nudIterations.Size = New System.Drawing.Size(81, 20)
+        Me.nudIterations.Size = New System.Drawing.Size(108, 22)
         Me.nudIterations.TabIndex = 14
         Me.nudIterations.Value = Global.Elevator_Simulation.My.MySettings.Default.Iterations
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(3, 291)
+        Me.Label4.Location = New System.Drawing.Point(4, 358)
+        Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(50, 13)
+        Me.Label4.Size = New System.Drawing.Size(66, 17)
         Me.Label4.TabIndex = 13
         Me.Label4.Text = "Iterations"
         '
         'btnSimulate
         '
         Me.btnSimulate.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.btnSimulate.Location = New System.Drawing.Point(6, 355)
+        Me.btnSimulate.Location = New System.Drawing.Point(8, 437)
+        Me.btnSimulate.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnSimulate.Name = "btnSimulate"
-        Me.btnSimulate.Size = New System.Drawing.Size(231, 32)
+        Me.btnSimulate.Size = New System.Drawing.Size(308, 39)
         Me.btnSimulate.TabIndex = 0
         Me.btnSimulate.Text = "Simulate"
         Me.btnSimulate.UseVisualStyleBackColor = True
@@ -185,60 +197,66 @@ Partial Class Form1
         'nudElevatorCount
         '
         Me.nudElevatorCount.DataBindings.Add(New System.Windows.Forms.Binding("Value", Global.Elevator_Simulation.My.MySettings.Default, "ElevatorCount", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        Me.nudElevatorCount.Location = New System.Drawing.Point(6, 143)
+        Me.nudElevatorCount.Location = New System.Drawing.Point(8, 176)
+        Me.nudElevatorCount.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.nudElevatorCount.Maximum = New Decimal(New Integer() {12, 0, 0, 0})
         Me.nudElevatorCount.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
         Me.nudElevatorCount.Name = "nudElevatorCount"
-        Me.nudElevatorCount.Size = New System.Drawing.Size(81, 20)
+        Me.nudElevatorCount.Size = New System.Drawing.Size(108, 22)
         Me.nudElevatorCount.TabIndex = 10
         Me.nudElevatorCount.Value = Global.Elevator_Simulation.My.MySettings.Default.ElevatorCount
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(3, 127)
+        Me.Label3.Location = New System.Drawing.Point(4, 156)
+        Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(77, 13)
+        Me.Label3.Size = New System.Drawing.Size(101, 17)
         Me.Label3.TabIndex = 9
         Me.Label3.Text = "Elevator Count"
         '
         'nudFloorCount
         '
         Me.nudFloorCount.DataBindings.Add(New System.Windows.Forms.Binding("Value", Global.Elevator_Simulation.My.MySettings.Default, "FloorCount", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        Me.nudFloorCount.Location = New System.Drawing.Point(6, 88)
+        Me.nudFloorCount.Location = New System.Drawing.Point(8, 108)
+        Me.nudFloorCount.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.nudFloorCount.Maximum = New Decimal(New Integer() {50, 0, 0, 0})
         Me.nudFloorCount.Minimum = New Decimal(New Integer() {2, 0, 0, 0})
         Me.nudFloorCount.Name = "nudFloorCount"
-        Me.nudFloorCount.Size = New System.Drawing.Size(81, 20)
+        Me.nudFloorCount.Size = New System.Drawing.Size(108, 22)
         Me.nudFloorCount.TabIndex = 6
         Me.nudFloorCount.Value = Global.Elevator_Simulation.My.MySettings.Default.FloorCount
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(3, 72)
+        Me.Label2.Location = New System.Drawing.Point(4, 89)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(61, 13)
+        Me.Label2.Size = New System.Drawing.Size(81, 17)
         Me.Label2.TabIndex = 5
         Me.Label2.Text = "Floor Count"
         '
         'nudEmployeeCount
         '
         Me.nudEmployeeCount.DataBindings.Add(New System.Windows.Forms.Binding("Value", Global.Elevator_Simulation.My.MySettings.Default, "EmployeeCount", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        Me.nudEmployeeCount.Location = New System.Drawing.Point(6, 36)
+        Me.nudEmployeeCount.Location = New System.Drawing.Point(8, 44)
+        Me.nudEmployeeCount.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.nudEmployeeCount.Maximum = New Decimal(New Integer() {1000, 0, 0, 0})
         Me.nudEmployeeCount.Minimum = New Decimal(New Integer() {50, 0, 0, 0})
         Me.nudEmployeeCount.Name = "nudEmployeeCount"
-        Me.nudEmployeeCount.Size = New System.Drawing.Size(81, 20)
+        Me.nudEmployeeCount.Size = New System.Drawing.Size(108, 22)
         Me.nudEmployeeCount.TabIndex = 2
         Me.nudEmployeeCount.Value = Global.Elevator_Simulation.My.MySettings.Default.EmployeeCount
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(3, 20)
+        Me.Label1.Location = New System.Drawing.Point(4, 25)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(84, 13)
+        Me.Label1.Size = New System.Drawing.Size(111, 17)
         Me.Label1.TabIndex = 1
         Me.Label1.Text = "Employee Count"
         '
@@ -246,9 +264,10 @@ Partial Class Form1
         '
         Me.lblSimulating.AutoSize = True
         Me.lblSimulating.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblSimulating.Location = New System.Drawing.Point(15, 414)
+        Me.lblSimulating.Location = New System.Drawing.Point(20, 510)
+        Me.lblSimulating.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblSimulating.Name = "lblSimulating"
-        Me.lblSimulating.Size = New System.Drawing.Size(131, 24)
+        Me.lblSimulating.Size = New System.Drawing.Size(164, 29)
         Me.lblSimulating.TabIndex = 1
         Me.lblSimulating.Text = "Simulating...."
         Me.lblSimulating.Visible = False
@@ -263,16 +282,19 @@ Partial Class Form1
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dgvResultsHeader.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvResultsHeader.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.colSimulationID, Me.colEmployeeCount, Me.colFloorCount, Me.colElevatorCount, Me.colMaxOccupantsPerElevator, Me.colMeanArriveTime, Me.colArriveTimeStandardDeviation, Me.colMeanArrivalWaitTime})
-        Me.dgvResultsHeader.Location = New System.Drawing.Point(266, 33)
+        Me.dgvResultsHeader.Location = New System.Drawing.Point(355, 41)
+        Me.dgvResultsHeader.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.dgvResultsHeader.Name = "dgvResultsHeader"
         Me.dgvResultsHeader.ReadOnly = True
-        Me.dgvResultsHeader.Size = New System.Drawing.Size(533, 184)
+        Me.dgvResultsHeader.RowHeadersWidth = 51
+        Me.dgvResultsHeader.Size = New System.Drawing.Size(711, 226)
         Me.dgvResultsHeader.TabIndex = 3
         '
         'colSimulationID
         '
         Me.colSimulationID.DataPropertyName = "SimulationID"
         Me.colSimulationID.HeaderText = "ID"
+        Me.colSimulationID.MinimumWidth = 6
         Me.colSimulationID.Name = "colSimulationID"
         Me.colSimulationID.ReadOnly = True
         Me.colSimulationID.Width = 50
@@ -281,6 +303,7 @@ Partial Class Form1
         '
         Me.colEmployeeCount.DataPropertyName = "EmployeeCount"
         Me.colEmployeeCount.HeaderText = "Employees"
+        Me.colEmployeeCount.MinimumWidth = 6
         Me.colEmployeeCount.Name = "colEmployeeCount"
         Me.colEmployeeCount.ReadOnly = True
         Me.colEmployeeCount.Width = 70
@@ -289,6 +312,7 @@ Partial Class Form1
         '
         Me.colFloorCount.DataPropertyName = "FloorCount"
         Me.colFloorCount.HeaderText = "Floors"
+        Me.colFloorCount.MinimumWidth = 6
         Me.colFloorCount.Name = "colFloorCount"
         Me.colFloorCount.ReadOnly = True
         Me.colFloorCount.Width = 40
@@ -297,6 +321,7 @@ Partial Class Form1
         '
         Me.colElevatorCount.DataPropertyName = "ElevatorCount"
         Me.colElevatorCount.HeaderText = "Elevators"
+        Me.colElevatorCount.MinimumWidth = 6
         Me.colElevatorCount.Name = "colElevatorCount"
         Me.colElevatorCount.ReadOnly = True
         Me.colElevatorCount.Width = 60
@@ -305,6 +330,7 @@ Partial Class Form1
         '
         Me.colMaxOccupantsPerElevator.DataPropertyName = "MaxOccupantsPerElevator"
         Me.colMaxOccupantsPerElevator.HeaderText = "Max per Elevator"
+        Me.colMaxOccupantsPerElevator.MinimumWidth = 6
         Me.colMaxOccupantsPerElevator.Name = "colMaxOccupantsPerElevator"
         Me.colMaxOccupantsPerElevator.ReadOnly = True
         Me.colMaxOccupantsPerElevator.Width = 70
@@ -313,6 +339,7 @@ Partial Class Form1
         '
         Me.colMeanArriveTime.DataPropertyName = "MeanArriveTime"
         Me.colMeanArriveTime.HeaderText = "Mean Arrive Time"
+        Me.colMeanArriveTime.MinimumWidth = 6
         Me.colMeanArriveTime.Name = "colMeanArriveTime"
         Me.colMeanArriveTime.ReadOnly = True
         Me.colMeanArriveTime.Width = 65
@@ -321,6 +348,7 @@ Partial Class Form1
         '
         Me.colArriveTimeStandardDeviation.DataPropertyName = "ArriveTimeStandardDeviation"
         Me.colArriveTimeStandardDeviation.HeaderText = "Arrive SD"
+        Me.colArriveTimeStandardDeviation.MinimumWidth = 6
         Me.colArriveTimeStandardDeviation.Name = "colArriveTimeStandardDeviation"
         Me.colArriveTimeStandardDeviation.ReadOnly = True
         Me.colArriveTimeStandardDeviation.Width = 65
@@ -329,15 +357,17 @@ Partial Class Form1
         '
         Me.colMeanArrivalWaitTime.DataPropertyName = "MeanArrivalWaitTime"
         Me.colMeanArrivalWaitTime.HeaderText = "Mean Arrival Wait Time"
+        Me.colMeanArrivalWaitTime.MinimumWidth = 6
         Me.colMeanArrivalWaitTime.Name = "colMeanArrivalWaitTime"
         Me.colMeanArrivalWaitTime.ReadOnly = True
         Me.colMeanArrivalWaitTime.Width = 70
         '
         'btnCopyHeader
         '
-        Me.btnCopyHeader.Location = New System.Drawing.Point(266, 223)
+        Me.btnCopyHeader.Location = New System.Drawing.Point(355, 274)
+        Me.btnCopyHeader.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnCopyHeader.Name = "btnCopyHeader"
-        Me.btnCopyHeader.Size = New System.Drawing.Size(146, 23)
+        Me.btnCopyHeader.Size = New System.Drawing.Size(195, 28)
         Me.btnCopyHeader.TabIndex = 4
         Me.btnCopyHeader.Text = "Copy results to clipboard"
         Me.btnCopyHeader.UseVisualStyleBackColor = True
@@ -347,17 +377,20 @@ Partial Class Form1
         Me.dgvResultsDetail.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dgvResultsDetail.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvResultsDetail.Location = New System.Drawing.Point(266, 260)
+        Me.dgvResultsDetail.Location = New System.Drawing.Point(355, 320)
+        Me.dgvResultsDetail.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.dgvResultsDetail.Name = "dgvResultsDetail"
         Me.dgvResultsDetail.ReadOnly = True
-        Me.dgvResultsDetail.Size = New System.Drawing.Size(533, 153)
+        Me.dgvResultsDetail.RowHeadersWidth = 51
+        Me.dgvResultsDetail.Size = New System.Drawing.Size(711, 188)
         Me.dgvResultsDetail.TabIndex = 5
         '
         'btnCopyDetail
         '
-        Me.btnCopyDetail.Location = New System.Drawing.Point(266, 419)
+        Me.btnCopyDetail.Location = New System.Drawing.Point(355, 516)
+        Me.btnCopyDetail.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnCopyDetail.Name = "btnCopyDetail"
-        Me.btnCopyDetail.Size = New System.Drawing.Size(146, 23)
+        Me.btnCopyDetail.Size = New System.Drawing.Size(195, 28)
         Me.btnCopyDetail.TabIndex = 6
         Me.btnCopyDetail.Text = "Copy results to clipboard"
         Me.btnCopyDetail.UseVisualStyleBackColor = True
@@ -365,17 +398,19 @@ Partial Class Form1
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(265, 13)
+        Me.Label7.Location = New System.Drawing.Point(353, 16)
+        Me.Label7.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(42, 13)
+        Me.Label7.Size = New System.Drawing.Size(55, 17)
         Me.Label7.TabIndex = 2
         Me.Label7.Text = "Results"
         '
         'btnClear
         '
-        Me.btnClear.Location = New System.Drawing.Point(418, 419)
+        Me.btnClear.Location = New System.Drawing.Point(557, 516)
+        Me.btnClear.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnClear.Name = "btnClear"
-        Me.btnClear.Size = New System.Drawing.Size(94, 23)
+        Me.btnClear.Size = New System.Drawing.Size(125, 28)
         Me.btnClear.TabIndex = 7
         Me.btnClear.Text = "Clear all results"
         Me.btnClear.UseVisualStyleBackColor = True
@@ -383,18 +418,28 @@ Partial Class Form1
         'btnExit
         '
         Me.btnExit.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnExit.Location = New System.Drawing.Point(721, 419)
+        Me.btnExit.Location = New System.Drawing.Point(961, 516)
+        Me.btnExit.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnExit.Name = "btnExit"
-        Me.btnExit.Size = New System.Drawing.Size(78, 23)
+        Me.btnExit.Size = New System.Drawing.Size(104, 28)
         Me.btnExit.TabIndex = 8
         Me.btnExit.Text = "Exit"
         Me.btnExit.UseVisualStyleBackColor = True
         '
+        'lblTime
+        '
+        Me.lblTime.AutoSize = True
+        Me.lblTime.Location = New System.Drawing.Point(690, 516)
+        Me.lblTime.Name = "lblTime"
+        Me.lblTime.Size = New System.Drawing.Size(0, 17)
+        Me.lblTime.TabIndex = 9
+        '
         'Form1
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(811, 456)
+        Me.ClientSize = New System.Drawing.Size(1081, 561)
+        Me.Controls.Add(Me.lblTime)
         Me.Controls.Add(Me.btnExit)
         Me.Controls.Add(Me.btnClear)
         Me.Controls.Add(Me.Label7)
@@ -404,7 +449,8 @@ Partial Class Form1
         Me.Controls.Add(Me.dgvResultsHeader)
         Me.Controls.Add(Me.lblSimulating)
         Me.Controls.Add(Me.gbSettings)
-        Me.MinimumSize = New System.Drawing.Size(752, 486)
+        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.MinimumSize = New System.Drawing.Size(997, 587)
         Me.Name = "Form1"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Elevator Simulation"
@@ -455,5 +501,5 @@ Partial Class Form1
     Friend WithEvents colMeanArriveTime As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents colArriveTimeStandardDeviation As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents colMeanArrivalWaitTime As System.Windows.Forms.DataGridViewTextBoxColumn
-
+    Friend WithEvents lblTime As Label
 End Class
